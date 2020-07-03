@@ -1,16 +1,16 @@
 const express = require('express')
 const morgan = require('morgan')
-const helmet = require('helmet')
-const dotenv = require('dotenv')
-const cors = require('cors')
-const bodyParser = require('body-parser')
-
 
 const server = express()
 
+server.use(morgan('dev'))
 
-server.get('/urlstring',(req, res) => {
-  
+server.use((req, res) => {
+    res.send('Hello, world!')
 })
 
+const PORT = 8000
 
+server.listen(PORT, () => {
+    console.log(`Server listening at http://localhost:${PORT}`)
+})
